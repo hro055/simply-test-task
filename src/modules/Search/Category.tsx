@@ -19,7 +19,7 @@ const Category: React.FC<IProps> = ({filter}) => {
             {filteredCategory.map((item) => {
                 return (
                     <div className="filter-item" key={item}>
-                      <input type="radio" checked={url.get("category") === item }onClick={() => history.push(`/search?category=${item}`)}></input>
+                      <input type="radio" checked={url.get("category") === item } onClick={() => history.push(`/search?category=${item}`)}></input>
                       <span>{item}</span>
                     </div>
                   );

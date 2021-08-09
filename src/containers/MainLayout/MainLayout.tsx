@@ -15,7 +15,6 @@ const MainLayout: React.FC<IMainLayoutProps> = ({ children }) => {
   const history = useHistory();
 
   React.useEffect(() => {
-    console.log(location);
     if(location.pathname === "/") {
       history.push("/home");
     }
