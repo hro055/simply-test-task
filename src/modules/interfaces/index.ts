@@ -104,3 +104,9 @@ export const countrys: CountryType[] = [
     { countryName: "Venezuela", countryCode: "ve" },
     { countryName: "South Africa", countryCode: "za" },
 ];
+
+export interface ISearchParams {
+    q?: string;
+    sources?: string;
+    category?: string; 
+}

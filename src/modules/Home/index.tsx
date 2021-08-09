@@ -39,7 +39,7 @@ const Home: React.FC<IProps> = ({sources}) => {
 
     function handleSearch() {
         dispatch(updateFilters({searchString}));
-        history.push('/search');
+        history.push(`/search?q=${searchString}`);
     }
 
     const handlePageClick = (e: any) => {
@@ -49,7 +49,7 @@ const Home: React.FC<IProps> = ({sources}) => {
 
     const handleSourceClick = (sources: string) => {
         dispatch(updateFilters({sources}));
-        history.push('/search');
+        history.push(`/search?sources=${sources}`);
     };
 
     return (

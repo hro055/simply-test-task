@@ -13,29 +13,11 @@ export const getSources = async () => {
 };
 
 export const getArticles = async (params) => {
-  let url = `${NEWS_API_URL}/top-headlines?`;
-  let isParams = false;
-  if (params.sources) {
-    isParams = true;
-    url = `${url}sources=${params.sources}&apiKey=${NEWS_API_KEY}`;
-  } else if (params.searchString) {
-    isParams = true;
-    url = `${url}q=${params.searchString}&apiKey=${NEWS_API_KEY}`;
-  } else {
-    if (params.country) {
-      isParams = true;
-      url = `${url}country=${params.country}`;
-    }
-    if (params.category) {
-      isParams = true;
-      url = `${url}category=${params.category}`;
-    }
-    url = `${url}&apiKey=${NEWS_API_KEY}`;
-  }
-
-  url = isParams ? url : `${NEWS_API_URL}/top-headlines?country=us&apiKey=${NEWS_API_KEY}`
+  const authorizedParams = {...params, apiKey: NEWS_API_KEY }
+  const url = new URL(`${NEWS_API_URL}/top-headlines?`);
+  url.search = new URLSearchParams(authorizedParams).toString();
   try {
-    const response = await fetch(url);
+    const response = await fetch(url.toString());
     const json = await response.json();
     return json.articles;
   } catch (error) {

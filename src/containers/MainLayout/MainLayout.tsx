@@ -21,14 +21,14 @@ const MainLayout: React.FC<IMainLayoutProps> = ({ children }) => {
     }
   }, [])
 
-  const getData = React.useCallback( async () => {
+  const getDataSourses = React.useCallback( async () => {
     const data = await getSources();
     dispatch(addSources(data));
   }, [dispatch]);
 
   React.useEffect( () => {
-    getData();
-  }, [getData]);
+    getDataSourses();
+  }, [getDataSourses]);
 
   return (
     <div className="flex-container">

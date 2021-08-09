@@ -53,7 +53,11 @@ const Input: React.FC<IInputProps> = forwardRef(function Input(
   }, [ onEnter ]);
 
   const iconClick = () => {
-    setOpen(!open);
+    if (value) {
+      onEnter?.();
+    } else {
+      setOpen(!open);
+    }
   };
   let display = !withIcon ? "inline-block" : open ? "inline-block" : "none";
   return (

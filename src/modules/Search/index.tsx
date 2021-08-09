@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import { Input } from '../../components/core';
 import ReactPaginate from "react-paginate";
-import { DataStructure, DataSources } from "../interfaces";
+import { DataStructure, DataSources, ISearchParams } from "../interfaces";
 
 import ArticlesView from "./ArticlesView";
 import Country from "./Country";
@@ -11,6 +11,7 @@ import Sources from "./Sources";
 import { getArticles } from "../../api";
 import { addArticles } from "../../modules/reducers/AppListReducer";
 import './SearchView.styles.scss';
+import { useLocation } from "react-router-dom";
 
 interface IProps {
     articles: DataStructure[];
@@ -20,9 +21,10 @@ interface IProps {
 
 const Search: React.FC<IProps> = ({articles, sources, filters}) => {
     const dispatch = useDispatch();
+    const location = useLocation();
     const [searchInFilter, setSearchInFilter] = useState("");
     const [searchQuery, setSearch] = useState("");
-    const [country, setCountry] = useState("");
+    const [country, setCountry] = useState("en");
     const [category, setCategory] = useState("");
 
     const [perPageData, setPerPageData] = useState([] as DataStructure[]);
@@ -31,18 +33,24 @@ const Search: React.FC<IProps> = ({articles, sources, filters}) => {
     const [pageCount, setPageCount] = useState(0);
 
     const getArticlesData = React.useCallback( async () => {
-        const data = await getArticles({
-            sources: filters.sources,
-            searchString: filters.searchString,
-            country: country,
-            category: category,
-        });
+        const search = new URLSearchParams(location.search);
+        const params:ISearchParams  = {};
+        const q = filters.searchString || search.get("q");
+        const sources = search.get("sources");
+        const category = search.get("category");
+
+
+        if(sources) params.sources = sources;
+        if(q) params.q = q;
+        if(category) params.category = category;
+        
+        const data = await getArticles(params);
         dispatch(addArticles(data));
-    }, [dispatch]);
+    }, [dispatch, location]);
     
     React.useEffect( () => {
         getArticlesData();
-    }, [getArticlesData]);
+    }, [getArticlesData, location]);
 
     function handleInputChange(newVal: string) {
         setSearch(newVal);

@@ -8,7 +8,7 @@ interface IProps {
 const Country: React.FC<IProps> = ({filter}) => {
     const filteredCountry = countrys.filter(item=>item.countryName.toLowerCase().includes(filter.toLowerCase()));
     return (
-        <div className="filter-section">
+        <div className="filter-section disabled">
             {!!filteredCountry.length && <div className="filter-header">Country</div>}
             {filteredCountry.map((item) => {
                 return (
