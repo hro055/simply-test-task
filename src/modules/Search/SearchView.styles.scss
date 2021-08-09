@@ -1,0 +1,63 @@
+
+.content {
+  padding: 15px 20px;
+  margin-bottom: 20px;
+}
+
+.clear {
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.filter-header {
+  text-align: left;
+  
+}
+.filter-section {
+  margin: 10px 0;
+  max-height: 200px;
+  overflow: hidden;
+  text-align: left;
+}
+
+.filter-item {
+  width: 150px;
+  display: inline-block;
+  text-align: left;
+  padding: 5px;
+  max-width: 150px;
+  
+}
+
+.toDots {
+  white-space: nowrap;
+	text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.filter-item input {
+  margin-right: 10px;
+}
+
+.news-content {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.left-section {
+  width: 30%;
+  display: inline-block;
+  text-align: center;
+  padding: 20px;
+  margin-right: 30px;
+  background-color: #a7a3a3;
+  height: 850px;
+}
+
+.right-section {
+  width: 70%;
+  display: inline-block;
+}

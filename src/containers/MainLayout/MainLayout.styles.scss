@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,700i');
+
+:root {
+  --white: #FFFFFF;
+  --black: #172241;
+  --gray: #f4f7f6;
+  --gray-dark: #6c7680;
+  --teal: #4bc3c9;
+}
+
+body, html {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--black);
+  text-align: left;
+  background-color: var(--gray);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  background-color: #bdbdbd;
+}
+
+.sources {
+  height: 50px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.source--content {
+  padding: 5px 15px;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+p {
+  color: var(--gray-dark);
+}
+
+.tags {
+  color: var(--teal);
+}
+
+h1 {
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 2.125rem;
+  padding: 0 1rem;
+}
+
+h4 {
+  font-size: 1rem;
+  padding: 0.1rem .5rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+}
+
+.flex-container > * {
+  flex: 1 100%;
+}
+
+.header {
+  height: 70px;
+  padding: 0 20px;
+  margin-bottom: 10px;
+  font-size: 26px;
+  font-weight: 700;
+  background-color: #a7a3a3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.nav-menu .active span {
+  color: var(--teal);
+}
+
+
+/*Nav Categories*/
+.nav-categories {
+  text-align: left;
+  flex: 0;
+  order: 1;
+}
+
+.nav-categories ul {
+  list-style-type: none;
+}
+
+.nav-categories li {
+  cursor: pointer;
+}
+
+.nav-categories li.selected {
+  background-color: rgb(87, 87, 206);
+  color: #FFFFFF;
+}
+
+.apps-list {
+  flex: 1;
+  order: 2;
+  text-align: left;
+}
+
+.app {
+  margin: 10px;
+  text-align: left;
+  border-bottom: 1px solid black;
+}
+
+
+/*Pagination*/
+.pagination {
+  text-align: center;
+  order: 3;
+}
+
+.pagination {
+  width: 100%;
+}
+
+.pagination {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 0;
+  margin-bottom: 0;
+  justify-content: center;
+}
+
+.pagination li {
+  margin-right: .25rem;
+}
+
+.pagination li:last-child {
+  margin-right: 0;
+}
+
+.pagination li a {
+  transition: all 0.3s ease-in-out;
+  color: var(--gray-dark);
+  padding: .375rem .4375rem;
+  text-decoration: none;
+}
+
+.pagination li a:hover {
+  background: var(--gray-dark);
+  color: var(--white)
+}
+
+.pagination li a:focus {
+  box-shadow: inset 0 0 0 2px var(--gray-dark);
+}
+
+.pagination li a:active {
+  background: var(--gray-dark);
+  color: var(--white);
+}
+
+.pagination .active a {
+  background: var(--gray-dark);
+  color: var(--white);
+  pointer-events: none;
+}

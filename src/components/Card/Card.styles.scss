@@ -1,0 +1,38 @@
+.app-item {
+  position: relative;
+  width: 400px;
+  display: inline-block;
+  margin-right: 35px;
+  margin-bottom: 25px;
+  background-color: rgb(167, 163, 163);
+  padding: 10px;
+}
+
+.box-info {
+  transition: all 0.3s ease-in-out;
+  padding: 1.5rem;
+  flex: 1;
+  position: relative;
+  clear: both;
+  background-color: #bdbdbd;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+
+.box-info--content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  text-align: center;
+  height: 90px;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.box-info--footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
